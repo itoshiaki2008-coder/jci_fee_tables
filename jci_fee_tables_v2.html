@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JCI 小型船舶 手数料一覧</title>
+<style>
+  body { font-family: sans-serif; background: #0b1624; color: #e0e8f0; margin: 0; padding: 1.5rem; }
+  h1 { font-size: 16px; font-weight: 500; color: #a0b8d0; margin-bottom: 1.5rem; }
+  .tab-bar { display: flex; gap: 0; margin-bottom: 1.5rem; border-bottom: 0.5px solid rgba(255,255,255,0.15); }
+  .tab { padding: 8px 14px; font-size: 13px; cursor: pointer; border: none; background: none; color: #7a9ab8; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .tab.active { color: #e0e8f0; border-bottom: 2px solid #185FA5; font-weight: 500; }
+  .tab:hover { color: #e0e8f0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; font-size: 12px; color: #7a9ab8; }
+  .legend-item { display: flex; align-items: center; gap: 4px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .note { font-size: 11px; color: #5a7a98; margin-top: 10px; line-height: 1.6; }
+  .section-title { font-size: 13px; font-weight: 500; color: #7a9ab8; margin: 1.5rem 0 0.5rem; }
+</style>
+</head>
+<body>
+<h1>JCI 小型船舶 登録・検査手数料一覧</h1>
+
+<div class="tab-bar">
+  <button class="tab active" onclick="showTab('reg')">登録測度</button>
+  <button class="tab" onclick="showTab('insp')">定期・中間検査</button>
+  <button class="tab" onclick="showTab('tmp')">臨時検査・臨時航行</button>
+</div>
+
+<div id="tab-reg">
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot" style="background:#378ADD"></span>新規登録（測度有り）</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#1D9E75"></span>変更登録（測度有り）</span>
+  </div>
+  <div style="position:relative;width:100%;height:280px;">
+    <canvas id="regChart" role="img" aria-label="新規・変更登録手数料を船長別に比較した棒グラフ">新規登録（測度有り）: 3m未満4,900円〜15〜20t 21,700円</canvas>
+  </div>
+  <div class="note">測度無し（現存船）一律 3,800円　／　臨検のみ 3,550円　／　臨検無し 2,950円　／　移転・抹消登録 各 2,950円</div>
+</div>
+
+<div id="tab-insp" style="display:none;">
+  <div class="section-title">旅客定員 12人以下</div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot" style="background:#378ADD"></span>定期検査</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#1D9E75"></span>中間検査</span>
+  </div>
+  <div style="position:relative;width:100%;height:260px;">
+    <canvas id="inspChart12" role="img" aria-label="旅客12人以下の定期・中間検査手数料"></canvas>
+  </div>
+  <div class="section-title">旅客定員 13人以上</div>
+  <div style="position:relative;width:100%;height:260px;">
+    <canvas id="inspChart13" role="img" aria-label="旅客13人以上の定期・中間検査手数料"></canvas>
+  </div>
+</div>
+
+<div id="tab-tmp" style="display:none;">
+  <div class="section-title">臨時検査・臨時航行検査（臨検1回につき）</div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot" style="background:#D85A30"></span>臨時検査・臨時航行検査</span>
+  </div>
+  <div style="position:relative;width:100%;height:280px;">
+    <canvas id="tmpChart" role="img" aria-label="臨時検査・臨時航行検査手数料を船長別に表示した棒グラフ">5m未満4,900円 / 5〜10m5,600円 / 10〜20m6,600円 / 20〜50m8,300円</canvas>
+  </div>
+  <div class="note">※ 臨検回数1回につきの金額です。　　再交付: 船舶検査証書・船舶検査証書 各4,350円 / 船舶検査済票4,100円 / 中間検査済票・有効期間延長申請・返納 無料</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const fmtY = v => '¥' + v.toLocaleString('ja-JP');
+const baseOpts = {
+  responsive: true, maintainAspectRatio: false,
+  plugins: {
+    legend: { display: false },
+    tooltip: { callbacks: { label: c => '¥' + c.parsed.y.toLocaleString('ja-JP') + '円' } }
+  },
+  scales: {
+    x: { grid: { color: 'rgba(255,255,255,0.07)' }, ticks: { font: { size: 11 }, color: '#7a9ab8', autoSkip: false, maxRotation: 0 } },
+    y: { grid: { color: 'rgba(255,255,255,0.07)' }, ticks: { callback: fmtY, font: { size: 11 }, color: '#7a9ab8' }, beginAtZero: true }
+  }
+};
+
+new Chart(document.getElementById('regChart'), {
+  type: 'bar',
+  data: {
+    labels: ['3m未満', '3〜5m', '5m以上', '5〜10t', '10〜15t', '15〜20t'],
+    datasets: [
+      { label: '新規登録（測度有り）', data: [4900, 7000, 8900, 15300, 18300, 21700], backgroundColor: '#378ADD', borderRadius: 4 },
+      { label: '変更登録（測度有り）',  data: [4350, 6000, 7500, 12700, 15100, 17800], backgroundColor: '#1D9E75', borderRadius: 4 }
+    ]
+  },
+  options: { ...baseOpts }
+});
+
+const inspLabels = ['3m未満', '3〜5m', '5〜10m', '10〜20m', '20〜30m'];
+new Chart(document.getElementById('inspChart12'), {
+  type: 'bar',
+  data: {
+    labels: inspLabels,
+    datasets: [
+      { label: '定期検査', data: [11600, 16700, 24300, 30700, 43400], backgroundColor: '#378ADD', borderRadius: 4 },
+      { label: '中間検査', data: [5100,  8200, 14900, 19200, 28000], backgroundColor: '#1D9E75', borderRadius: 4 }
+    ]
+  },
+  options: { ...baseOpts }
+});
+
+new Chart(document.getElementById('inspChart13'), {
+  type: 'bar',
+  data: {
+    labels: inspLabels,
+    datasets: [
+      { label: '定期検査', data: [16600, 24200, 34500, 46800, 63400], backgroundColor: '#185FA5', borderRadius: 4 },
+      { label: '中間検査', data: [8900, 13400, 22400, 29500, 43000], backgroundColor: '#0F6E56', borderRadius: 4 }
+    ]
+  },
+  options: { ...baseOpts }
+});
+
+new Chart(document.getElementById('tmpChart'), {
+  type: 'bar',
+  data: {
+    labels: ['5m未満', '5〜10m', '10〜20m', '20〜50m'],
+    datasets: [
+      { label: '臨時検査・臨時航行検査', data: [4900, 5600, 6600, 8300], backgroundColor: '#D85A30', borderRadius: 4 }
+    ]
+  },
+  options: { ...baseOpts }
+});
+
+function showTab(id) {
+  ['reg', 'insp', 'tmp'].forEach(t => {
+    document.getElementById('tab-' + t).style.display = t === id ? '' : 'none';
+  });
+  document.querySelectorAll('.tab').forEach((btn, i) => {
+    btn.classList.toggle('active', ['reg', 'insp', 'tmp'][i] === id);
+  });
+}
+</script>
+</body>
+</html>
