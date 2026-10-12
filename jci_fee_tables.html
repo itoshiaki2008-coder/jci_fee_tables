@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JCI手数料改定額一覧 令和8年7月1日〜</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#06101e;min-height:100vh;padding:24px 12px 40px;font-family:'Noto Sans JP','Hiragino Sans',sans-serif;color:#c8dff5}
+.wrap{max-width:780px;margin:0 auto;background:#0a1628;border-radius:14px;padding:28px 22px 32px}
+.hdr{text-align:center;margin-bottom:24px}
+.badge{display:inline-block;background:rgba(0,140,255,0.15);border:1px solid rgba(0,160,255,0.4);color:#5bc4ff;font-size:11px;letter-spacing:.08em;padding:3px 14px;border-radius:20px;margin-bottom:10px}
+.ttl{font-size:17px;font-weight:700;color:#e8f4ff;letter-spacing:.03em}
+.sub{font-size:11px;color:#6a9cbe;margin-top:5px}
+.sec{font-size:11px;font-weight:700;letter-spacing:.1em;color:#5bc4ff;border-left:3px solid #1a6fbb;padding-left:10px;margin:22px 0 11px}
+
+.tbl-w{overflow-x:auto;border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+table.t-insp{min-width:440px}
+table.t-insp th:nth-child(3),table.t-insp th:nth-child(4){width:30%}
+table.t-reg{min-width:480px}
+thead tr{background:rgba(0,70,140,0.4)}
+th{padding:9px 10px;text-align:center;font-weight:700;font-size:11px;letter-spacing:.05em;color:#5bc4ff;border:1px solid rgba(91,196,255,0.18);white-space:nowrap}
+td{padding:7px 10px;text-align:right;color:#c8dff5;font-size:12px;border:1px solid rgba(91,196,255,0.12);vertical-align:middle}
+
+/* 左端列（種別）：結合セル */
+td.grp{text-align:left;background:rgba(0,55,110,0.38);color:#5bc4ff;font-weight:700;font-size:12px;letter-spacing:.04em;white-space:nowrap;line-height:1.5}
+td.grp .gsub{display:block;font-weight:400;font-size:10px;color:#6a9cbe;letter-spacing:0;white-space:normal;margin-top:2px}
+
+/* 船の長さ・大きさ・説明 */
+td.l{text-align:left;white-space:nowrap;color:#93c5e8;font-size:11px}
+td.l.wrapok{white-space:normal}
+td.c{text-align:center}
+
+/* 金額 */
+td.v{color:#5effd8;font-weight:700}
+td.v.mid{text-align:center}
+th .hsub{display:block;font-weight:400;font-size:10px;color:#6a9cbe;letter-spacing:0;margin-top:2px}
+
+.note{margin-top:16px;font-size:10px;color:#4a7a9a;line-height:1.8}
+.hint{display:none;font-size:10px;color:#4a7a9a;margin-top:6px;text-align:center}
+@media (max-width:560px){.hint{display:block}.wrap{padding:22px 14px 28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div class="badge">JCI 日本小型船舶検査機構</div>
+    <div class="ttl">手数料改定額一覧（新料金）</div>
+    <div class="sub">令和8年7月1日以降の手数料</div>
+  </div>
+
+  <!-- ===================== 検査手数料 ===================== -->
+  <div class="sec">検査手数料</div>
+  <div class="tbl-w">
+    <table class="t-insp">
+      <thead>
+        <tr>
+          <th>検査種別</th>
+          <th>船の長さ</th>
+          <th>旅客12人以下<span class="hsub">金額（円）</span></th>
+          <th>旅客13人以上<span class="hsub">金額（円）</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 定期 -->
+        <tr>
+          <td class="grp" rowspan="5">定期</td>
+          <td class="l">3m未満</td>
+          <td class="v">13,100</td>
+          <td class="v">18,700</td>
+        </tr>
+        <tr><td class="l">3m以上5m未満</td><td class="v">19,000</td><td class="v">27,300</td></tr>
+        <tr><td class="l">5m以上10m未満</td><td class="v">27,800</td><td class="v">39,100</td></tr>
+        <tr><td class="l">10m以上20m未満</td><td class="v">35,200</td><td class="v">52,800</td></tr>
+        <tr><td class="l">20m以上</td><td class="v">49,800</td><td class="v">72,200</td></tr>
+
+        <!-- 中間 -->
+        <tr>
+          <td class="grp" rowspan="5">中間</td>
+          <td class="l">3m未満</td>
+          <td class="v">5,900</td>
+          <td class="v">10,200</td>
+        </tr>
+        <tr><td class="l">3m以上5m未満</td><td class="v">9,500</td><td class="v">15,400</td></tr>
+        <tr><td class="l">5m以上10m未満</td><td class="v">17,200</td><td class="v">25,700</td></tr>
+        <tr><td class="l">10m以上20m未満</td><td class="v">22,200</td><td class="v">34,000</td></tr>
+        <tr><td class="l">20m以上</td><td class="v">32,300</td><td class="v">49,300</td></tr>
+
+        <!-- 臨時・臨航（旅客区分なし：金額列を結合） -->
+        <tr>
+          <td class="grp" rowspan="4">臨時・臨航<span class="gsub">臨検1回につき</span></td>
+          <td class="l">5m未満</td>
+          <td class="v mid" colspan="2">5,600</td>
+        </tr>
+        <tr><td class="l">5m以上10m未満</td><td class="v mid" colspan="2">6,400</td></tr>
+        <tr><td class="l">10m以上20m未満</td><td class="v mid" colspan="2">7,600</td></tr>
+        <tr><td class="l">20m以上</td><td class="v mid" colspan="2">9,500</td></tr>
+
+        <!-- 書換（旅客区分なし：金額列を結合） -->
+        <tr>
+          <td class="grp">書換<span class="gsub">申請</span></td>
+          <td class="l c">—</td>
+          <td class="v mid" colspan="2">4,350</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="hint">← 表は横にスクロールできます →</div>
+
+  <!-- ===================== 登録測度手数料 ===================== -->
+  <div class="sec" style="margin-top:30px">登録測度手数料</div>
+  <div class="tbl-w">
+    <table class="t-reg">
+      <thead>
+        <tr>
+          <th>登録種別</th>
+          <th>船の大きさ</th>
+          <th>船の長さ</th>
+          <th>金額（円）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 新規 -->
+        <tr>
+          <td class="grp" rowspan="6">新規<span class="gsub">新造船（輸入艇含む）</span></td>
+          <td class="l" rowspan="3">5トン未満</td>
+          <td class="l">3m未満</td>
+          <td class="v">5,500</td>
+        </tr>
+        <tr><td class="l">3m以上5m未満</td><td class="v">7,900</td></tr>
+        <tr><td class="l">5m以上</td><td class="v">10,100</td></tr>
+        <tr><td class="l" colspan="2">5〜10トン未満</td><td class="v">17,300</td></tr>
+        <tr><td class="l" colspan="2">10〜15トン未満</td><td class="v">20,700</td></tr>
+        <tr><td class="l" colspan="2">15〜20トン未満</td><td class="v">24,600</td></tr>
+
+        <!-- 現存 -->
+        <tr>
+          <td class="grp" rowspan="7">現存<span class="gsub">現存船</span></td>
+          <td class="l" rowspan="3">5トン未満</td>
+          <td class="l">3m未満</td>
+          <td class="v">5,500</td>
+        </tr>
+        <tr><td class="l">3m以上5m未満</td><td class="v">7,900</td></tr>
+        <tr><td class="l">5m以上</td><td class="v">10,100</td></tr>
+        <tr><td class="l" colspan="2">5〜10トン未満</td><td class="v">17,300</td></tr>
+        <tr><td class="l" colspan="2">10〜15トン未満</td><td class="v">20,700</td></tr>
+        <tr><td class="l" colspan="2">15〜20トン未満</td><td class="v">24,600</td></tr>
+        <tr><td class="l" colspan="2">測度なし</td><td class="v">4,300</td></tr>
+
+        <!-- 新規適用 -->
+        <tr>
+          <td class="grp" rowspan="8">新規適用<span class="gsub">漁船からの適用など（測度あり）</span></td>
+          <td class="l" rowspan="3">5トン未満</td>
+          <td class="l">3m未満</td>
+          <td class="v">5,500</td>
+        </tr>
+        <tr><td class="l">3m以上5m未満</td><td class="v">7,900</td></tr>
+        <tr><td class="l">5m以上</td><td class="v">10,100</td></tr>
+        <tr><td class="l" colspan="2">5〜10トン未満</td><td class="v">17,300</td></tr>
+        <tr><td class="l" colspan="2">10〜15トン未満</td><td class="v">20,700</td></tr>
+        <tr><td class="l" colspan="2">15〜20トン未満</td><td class="v">24,600</td></tr>
+        <tr><td class="l wrapok" colspan="2">漁船の登録の謄本（抹消謄本）を提出した場合</td><td class="v">4,550</td></tr>
+        <tr><td class="l wrapok" colspan="2">総トン数計算書の謄本を提出した場合</td><td class="v">4,550</td></tr>
+
+        <!-- 変更登録（測度あり） -->
+        <tr>
+          <td class="grp" rowspan="6">変更登録（測度あり）<span class="gsub">長さ・幅・深さ・総トン数変更</span></td>
+          <td class="l" rowspan="3">5トン未満</td>
+          <td class="l">3m未満</td>
+          <td class="v">4,950</td>
+        </tr>
+        <tr><td class="l">3m以上5m未満</td><td class="v">6,800</td></tr>
+        <tr><td class="l">5m以上</td><td class="v">8,500</td></tr>
+        <tr><td class="l" colspan="2">5〜10トン未満</td><td class="v">14,400</td></tr>
+        <tr><td class="l" colspan="2">10〜15トン未満</td><td class="v">17,100</td></tr>
+        <tr><td class="l" colspan="2">15〜20トン未満</td><td class="v">20,100</td></tr>
+
+        <!-- 変更登録（測度なし） -->
+        <tr>
+          <td class="grp" rowspan="3">変更登録（測度なし）</td>
+          <td class="l wrapok" colspan="2">船舶の確認を要する場合</td>
+          <td class="v">4,000</td>
+        </tr>
+        <tr><td class="l wrapok" colspan="2">書類審査のみの場合（住所変更など）</td><td class="v">3,350</td></tr>
+        <tr><td class="l wrapok" colspan="2">変更登録及び移転登録を同時に申請した場合（船舶確認または測度不要）</td><td class="v">3,350</td></tr>
+
+        <!-- 移転 -->
+        <tr>
+          <td class="grp">移転</td>
+          <td class="l c" colspan="2">—</td>
+          <td class="v">3,350</td>
+        </tr>
+
+        <!-- 抹消 -->
+        <tr>
+          <td class="grp">抹消</td>
+          <td class="l c" colspan="2">—</td>
+          <td class="v">3,350</td>
+        </tr>
+
+        <!-- 事項証明 -->
+        <tr>
+          <td class="grp" rowspan="3">事項証明<span class="gsub">登録事項証明書</span></td>
+          <td class="l" colspan="2">一部事項証明書</td>
+          <td class="v">1,500</td>
+        </tr>
+        <tr><td class="l" colspan="2">全部事項証明書</td><td class="v">1,750</td></tr>
+        <tr><td class="l" colspan="2">登録事項要約書</td><td class="v">3,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="hint">← 表は横にスクロールできます →</div>
+
+  <div class="note">
+    ※ 正式な手数料はJCI公式サイトでご確認ください。<br>
+    https://jci.go.jp/pdf/tesuuryoukaitei.pdf
+  </div>
+</div>
+</body>
+</html>
