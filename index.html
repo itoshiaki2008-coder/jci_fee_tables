@@ -9,7 +9,7 @@
 body{background:#06101e;min-height:100vh;padding:24px 12px 40px;font-family:'Noto Sans JP','Hiragino Sans',sans-serif;color:#c8dff5}
 .wrap{max-width:780px;margin:0 auto;background:#0a1628;border-radius:14px;padding:28px 22px 32px}
 .hdr{text-align:center;margin-bottom:24px}
-.badge{display:inline-block;background:rgba(0,140,255,0.15);border:1px solid rgba(0,160,255,0.4);color:#5bc4ff;font-size:11px;letter-spacing:.08em;padding:3px 14px;border-radius:20px;margin-bottom:10px}
+.badge{display:inline-block;background:rgba(0,140,255,0.15);border:1px solid rgba(0,160,255,0.4);color:#5bc4ff;font-size:11px;letter-spacing:.08em;padding:3px 14px;border-radius:20px;margin-bottom:8px}
 .ttl{font-size:17px;font-weight:700;color:#e8f4ff;letter-spacing:.03em}
 .sub{font-size:11px;color:#6a9cbe;margin-top:5px}
 .sec{font-size:11px;font-weight:700;letter-spacing:.1em;color:#5bc4ff;border-left:3px solid #1a6fbb;padding-left:10px;margin:22px 0 11px}
@@ -17,7 +17,6 @@ body{background:#06101e;min-height:100vh;padding:24px 12px 40px;font-family:'Not
 .tbl-w{overflow-x:auto;border-radius:8px}
 table{width:100%;border-collapse:collapse;font-size:12px}
 table.t-insp{min-width:440px}
-table.t-insp th:nth-child(3),table.t-insp th:nth-child(4){width:30%}
 table.t-reg{min-width:720px}
 
 /* ===== 登録測度手数料：マトリクス表 ===== */
@@ -136,7 +135,7 @@ th .hsub{display:block;font-weight:400;font-size:10px;color:#6a9cbe;letter-spaci
       <thead>
         <tr>
           <th class="h-type" colspan="3" rowspan="3">登録の種類</th>
-          <th class="h-size" colspan="6">船の大きさ</th>
+          <th class="h-size" colspan="6">金額（円）</th>
         </tr>
         <tr>
           <th class="h-s2" colspan="3">5トン未満</th>
@@ -155,74 +154,74 @@ th .hsub{display:block;font-weight:400;font-size:10px;color:#6a9cbe;letter-spaci
         <tr>
           <td class="g1" rowspan="6">新規登録</td>
           <td class="g2" colspan="2">新造船（輸入艇を含む）</td>
-          <td class="v">5,500<span class="yen">円</span></td><td class="v">7,900<span class="yen">円</span></td><td class="v">10,100<span class="yen">円</span></td><td class="v">17,300<span class="yen">円</span></td><td class="v">20,700<span class="yen">円</span></td><td class="v">24,600<span class="yen">円</span></td>
+          <td class="v">5,500</td><td class="v">7,900</td><td class="v">10,100</td><td class="v">17,300</td><td class="v">22,600</td><td class="v">28,900</td>
         </tr>
         <tr>
           <td class="g2" rowspan="2">現存船</td>
           <td class="g3">測度あり<br>（登録に際し、改造が行われていた場合）</td>
-          <td class="v">5,500<span class="yen">円</span></td><td class="v">7,900<span class="yen">円</span></td><td class="v">10,100<span class="yen">円</span></td><td class="v">17,300<span class="yen">円</span></td><td class="v">20,700<span class="yen">円</span></td><td class="v">24,600<span class="yen">円</span></td>
+          <td class="v">5,500</td><td class="v">7,900</td><td class="v">10,100</td><td class="v">17,300</td><td class="v">22,600</td><td class="v">28,900</td>
         </tr>
         <tr>
           <td class="g3">測度なし</td>
-          <td class="vw" colspan="6">4,300<span class="yen">円</span></td>
+          <td class="vw" colspan="6">4,300</td>
         </tr>
         <tr>
           <td class="g2" rowspan="2">新規適用<br>（漁船からの転用など）</td>
           <td class="g3">測度あり</td>
-          <td class="v">5,500<span class="yen">円</span></td><td class="v">7,900<span class="yen">円</span></td><td class="v">10,100<span class="yen">円</span></td><td class="v">17,300<span class="yen">円</span></td><td class="v">20,700<span class="yen">円</span></td><td class="v">24,600<span class="yen">円</span></td>
+          <td class="v">5,500</td><td class="v">7,900</td><td class="v">10,100</td><td class="v">17,300</td><td class="v">22,600</td><td class="v">28,900</td>
         </tr>
         <tr>
           <td class="g3">漁船の登録の謄本（抹消謄本）を提出した場合</td>
-          <td class="vw" colspan="6">4,550<span class="yen">円</span></td>
+          <td class="vw" colspan="6">4,550</td>
         </tr>
         <tr>
           <td class="g2" colspan="2">総トン数計算書の謄本を提出した場合</td>
-          <td class="vw" colspan="6">4,550<span class="yen">円</span></td>
+          <td class="vw" colspan="6">4,550</td>
         </tr>
 
         <!-- 変更登録 -->
         <tr>
           <td class="g1" rowspan="3">変更登録</td>
           <td class="g2" colspan="2">測度あり<br>（船舶の長さ、幅、深さ又は総トン数が変更となる場合）</td>
-          <td class="v">4,950<span class="yen">円</span></td><td class="v">6,800<span class="yen">円</span></td><td class="v">8,500<span class="yen">円</span></td><td class="v">14,400<span class="yen">円</span></td><td class="v">17,100<span class="yen">円</span></td><td class="v">20,100<span class="yen">円</span></td>
+          <td class="v">4,950</td><td class="v">6,800</td><td class="v">8,500</td><td class="v">14,400</td><td class="v">17,900</td><td class="v">21,500</td>
         </tr>
         <tr>
           <td class="g2" rowspan="2">測度なし</td>
           <td class="g3">船舶の確認を要する場合</td>
-          <td class="vw" colspan="6">4,000<span class="yen">円</span></td>
+          <td class="vw" colspan="6">4,000</td>
         </tr>
         <tr>
           <td class="g3">書類審査のみの場合<br>（住所変更など）</td>
-          <td class="vw" colspan="6">3,350<span class="yen">円</span></td>
+          <td class="vw" colspan="6">3,350</td>
         </tr>
 
         <!-- 同時申請・移転・抹消 -->
         <tr>
-          <td class="g1" colspan="3">変更登録及び移転登録を同時に申請した場合<br><span style="font-weight:400;font-size:10.5px;color:#8cc9f0">（船舶の確認または測度を要しない場合に限る）</span></td>
-          <td class="vw" colspan="6">3,350<span class="yen">円</span></td>
+          <td class="g1" colspan="3">変更登録及び移転登録を同時に申請した場合<br><span style="font-weight:400;font-size:10.5px;color:#8cc9f0">（船舶の確認または測度が必要な場合でも）</span></td>
+          <td class="vw" colspan="6">3,350</td>
         </tr>
         <tr>
           <td class="g1" colspan="3">移転登録</td>
-          <td class="vw" colspan="6">3,350<span class="yen">円</span></td>
+          <td class="vw" colspan="6">3,350</td>
         </tr>
         <tr>
           <td class="g1" colspan="3">抹消登録</td>
-          <td class="vw" colspan="6">3,350<span class="yen">円</span></td>
+          <td class="vw" colspan="6">3,350</td>
         </tr>
 
         <!-- 登録事項証明書 -->
         <tr>
           <td class="g1" colspan="2" rowspan="3">登録事項証明書</td>
           <td class="g3">一部事項証明書</td>
-          <td class="vw left" colspan="6">1,500<span class="yen">円</span><span class="vnote">（同一船舶の証明書を複数枚請求する場合は1通につき10円加算）</span></td>
+          <td class="vw left" colspan="6">1,500<span class="vnote">（同一船舶の証明書を複数枚請求する場合は1通につき10円加算）</span></td>
         </tr>
         <tr>
           <td class="g3">全部事項証明書</td>
-          <td class="vw left" colspan="6">1,750<span class="yen">円</span><span class="vnote">（同一船舶の証明書を複数枚請求する場合は1通につき30円加算）</span></td>
+          <td class="vw left" colspan="6">1,750<span class="vnote">（同一船舶の証明書を複数枚請求する場合は1通につき30円加算）</span></td>
         </tr>
         <tr>
           <td class="g3">登録事項要約書</td>
-          <td class="vw left" colspan="6"><span style="font-weight:500;font-size:11px;color:#a3cfee;margin-right:4px">30隻毎につき</span>3,000<span class="yen">円</span><span class="vnote">（同一船舶の要約書を複数枚請求する場合は1通につき10円加算）</span></td>
+          <td class="vw left" colspan="6"><span style="font-weight:500;font-size:11px;color:#a3cfee;margin-right:4px">30隻毎につき</span>3,000<span class="vnote">（以降30隻毎に3,000円）</span></td>
         </tr>
       </tbody>
     </table>
